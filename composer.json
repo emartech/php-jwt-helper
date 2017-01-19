@@ -1,0 +1,13 @@
+{
+  "prefer-stable" : true,
+  "require": {
+    "php": "~7.1",
+    "firebase/php-jwt": "^4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.2.*"
+  },
+  "autoload": {
+    "psr-4": {"": "src/"}
+  }
+}
