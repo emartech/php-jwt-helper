@@ -1,4 +1,7 @@
 {
+  "name": "emartech/php-jwt-helper",
+  "description": "Simple helper for firebase jwt package",
+  "type": "library",
   "prefer-stable" : true,
   "require": {
     "php": "~7.1",
