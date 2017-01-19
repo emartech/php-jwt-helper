@@ -11,6 +11,9 @@
     "phpunit/phpunit": "5.2.*"
   },
   "autoload": {
-    "psr-4": {"": "src/"}
+    "psr-4": {"Emartech\\Jwt\\": "src/"}
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit -c test/phpunit.xml"
   }
 }
