@@ -2,7 +2,7 @@
 
 use Emartech\Jwt\Jwt;
 
-class JwtTest
+class JwtTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @test
