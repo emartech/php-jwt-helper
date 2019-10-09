@@ -8,6 +8,7 @@
     "firebase/php-jwt": "^5.0"
   },
   "require-dev": {
+    "fqqdk/packagist-publisher": "*",
     "emartech/php-test-helpers": "~1",
     "phpunit/phpunit": "~8.4"
   },
