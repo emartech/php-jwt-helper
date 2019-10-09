@@ -5,7 +5,6 @@
         backupGlobals="false"
         backupStaticAttributes="false"
         beStrictAboutOutputDuringTests="true"
-        beStrictAboutTestSize="true"
         colors="true"
 >
     <testsuites>

@@ -1,17 +1,18 @@
 <?php
 
 use Emartech\Jwt\Jwt;
+use Emartech\TestHelper\BaseTestCase;
 
-class JwtTest extends PHPUnit_Framework_TestCase
+class JwtTest extends BaseTestCase
 {
     /**
      * @test
-     * @expectedException \InvalidArgumentException
      */
     public function parseHeader_MalformedHeader_itCheckAuthorizationHeaderFormat()
     {
-        $jwt = new Jwt('irrelevant_secret');
-        $jwt->parseHeader("malformed header");
+        $this->assertExceptionThrown(InvalidArgumentException::class, function () {
+            (new Jwt('irrelevant_secret'))->parseHeader("malformed header");
+        });
     }
 
     /**
@@ -21,7 +22,7 @@ class JwtTest extends PHPUnit_Framework_TestCase
     {
         $jwt = new Jwt('secret_key');
         $payload = (object)array('payload' => 'data');
-        $this->assertEquals($payload, $jwt->parseHeader("Bearer ".Firebase\JWT\JWT::encode($payload, 'secret_key')));
+        $this->assertEquals($payload, $jwt->parseHeader("Bearer " . Firebase\JWT\JWT::encode($payload, 'secret_key')));
     }
 
     /**
@@ -31,11 +32,9 @@ class JwtTest extends PHPUnit_Framework_TestCase
     {
         $jwt = new Jwt('secret_key');
 
-        try
-        {
-            $jwt->parseHeader("Bearer ".Firebase\JWT\JWT::encode([], 'wrong_key'));
-        } catch (\Firebase\JWT\SignatureInvalidException $ex)
-        {
+        try {
+            $jwt->parseHeader("Bearer " . Firebase\JWT\JWT::encode([], 'wrong_key'));
+        } catch (\Firebase\JWT\SignatureInvalidException $ex) {
             $this->assertEquals('Signature verification failed', $ex->getMessage());
             return;
         }
