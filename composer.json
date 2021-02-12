@@ -4,13 +4,13 @@
   "type": "library",
   "prefer-stable" : true,
   "require": {
-    "php": "~7.1",
+    "php": ">=7.1",
     "firebase/php-jwt": "^5.0"
   },
   "require-dev": {
     "fqqdk/packagist-publisher": "*",
     "emartech/php-test-helpers": "~1",
-    "phpunit/phpunit": "~8.4"
+    "phpunit/phpunit": ">=8.4"
   },
   "autoload": {
     "psr-4": {"Emartech\\Jwt\\": "src/"}
